@@ -1,0 +1,65 @@
+<% layout("/layouts/boilerplate") %>
+<div class="row">
+    <div class="col-8 offset-2">
+<body>
+    <h3>Create New Listing </h3>
+    <form action="/listings" method="POST" novalidate class="needs-validation" enctype="multipart/form-data">
+        <div class="mb-3">
+            <label for="title" class="form-label">Title</label>
+        <input type="text" name="listing[title]" placeholder="Enter a Catchy Title" class="form-control" required>
+        <div class="valid-feedback">Title looks good!</div>
+        <div class="invalid-feedback">Please enter the title</div>
+        </div>
+        <div class="mb-3">
+         <label for="description" class="form-label">Description</label>
+        <textarea type="text" name="listing[description]" placeholder="Description" class="form-control" required></textarea>
+        <div class="invalid-feedback">Please enter the short description.</div>
+       </div>
+        <div class="mb-3">
+             <label for="image" class="form-label">Upload Listing Image</label>
+        <input type="file" name="listing[image]" class="form-control" required>
+        </div>
+      <div class="row">
+         <div class="mb-3 col-md-4">
+         <label for="price" class="form-label">Price</label>
+        <input name="listing[price]" placeholder="1500" class="form-control" required>
+        <div class="invalid-feedback">Please enter a valid price.</div>
+       </div>
+       <div class="mb-3 col-md-8">
+         <label for="country" class="form-label">Country</label>
+        <input type="text" name="listing[country]" placeholder="India" class="form-control" required>
+        <div class="invalid-feedback">Please enter a valid country.</div>
+         </div>
+      </div>
+          <div class="mb-3">
+         <label for="location" class="form-label">Location</label>
+        <input type="text" name="listing[location]" placeholder="Udaipur, Rajasthan" class="form-control" required>
+        <div class="invalid-feedback">Please enter a valid location.</div>
+       </div>
+       <div class="mb-3">
+         <label for="category" class="form-label">Category</label>
+       <label>Categories</label>
+<div class="form-group category-check">
+
+  <label><input type="checkbox" name="listing[category][]" value="beach"> Beach</label>
+  <label><input type="checkbox" name="listing[category][]" value="mountain"> Mountain</label>
+  <label><input type="checkbox" name="listing[category][]" value="city"> City</label>
+  <label><input type="checkbox" name="listing[category][]" value="farm"> Farm</label>
+  <label><input type="checkbox" name="listing[category][]" value="pool"> Pool</label>
+  <label><input type="checkbox" name="listing[category][]" value="camping"> Camping</label>
+  <label><input type="checkbox" name="listing[category][]" value="castle"> Castle</label>
+  <label><input type="checkbox" name="listing[category][]" value="arctic"> Arctic</label>
+  <label><input type="checkbox" name="listing[category][]" value="rooms"> Rooms</label>
+  <label><input type="checkbox" name="listing[category][]" value="trending"> Trending</label>
+
+</div>
+
+       </div>
+         <div class="mb-3">
+             <button class="btn btn-dark add-btn">Create Listing</button>
+         </div>
+    </form>
+    
+</body>
+</div>
+</div>

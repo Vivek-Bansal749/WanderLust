@@ -1,0 +1,154 @@
+<% layout("/layouts/boilerplate") %>
+<br>
+<div class="row">
+    <div class="col-8 offset-2">
+<body>
+    <h3>Edit the List</h3>
+    <form action="/listings/<%= listing._id %>?_method=PUT" method="POST" novalidate class="needs-validation" enctype="multipart/form-data" >
+       <div class="mb-3">
+         <label for="title" class="form-label">Title</label>
+        <input type="text" name="listing[title]" value="<%= listing.title %>" class="form-control" required>
+        <div class="invalid-feedback">Please enter the title</div>
+       </div>
+         <div class="mb-3">
+         <p>Original Image</p>
+        <img src="<%= originalImageUrl%>" class="w-25">
+      </div>
+       <div class="mb-3">
+         <label for="image" class="form-label">Upload New Image </label>
+        <input type="file" name="listing[image]"  class="form-control">
+        <div class="invalid-feedback">Please Upload the image </div>
+       </div>
+      <div class="mb-3">
+          <label for="description" class="form-label">Description</label>
+        <textarea type="text" class="form-control" name="listing[description]" placeholder="Description" required><%= listing.description %> </textarea>
+        <div class="invalid-feedback">Please enter the short description.</div>
+      </div>
+     <div class="row">
+         <div class="mb-3 col-md-4">
+          <label for="price" class="form-label">Price</label>
+        <input type="number" name="listing[price]" value="<%= listing.price %>" class="form-control" required>
+        <div class="invalid-feedback">Please enter a valid price.</div>
+      </div>
+       <div class="mb-3 col-md-8">
+         <label for="country" class="form-label">Country</label>
+        <input type="text" name="listing[country]" value="<%= listing.country %>" class="form-control" required>
+        <div class="invalid-feedback">Please enter a valid country.</div>
+       </div>
+     
+         <div class="mb-3">
+         <label for="location" class="form-label">Location</label>
+        <input type="text" name="listing[location]" value="<%= listing.location %>" class="form-control" required>
+        <div class="invalid-feedback">Please enter a valid location.</div>
+       </div>
+       <div class="mb-3">
+         <label for="category" class="form-label">Categories</label>
+          <label>
+            <input 
+              type="checkbox" 
+              name="listing[category][]" 
+              value="beach"
+              <%= listing.category.includes("beach") ? "checked" : "" %>
+            >
+            Beach
+          </label>
+
+          <label>
+            <input 
+              type="checkbox" 
+              name="listing[category][]" 
+              value="mountain"
+              <%= listing.category.includes("mountain") ? "checked" : "" %>
+            >
+            Mountain
+          </label>
+
+          <label>
+            <input 
+              type="checkbox" 
+              name="listing[category][]" 
+              value="city"
+              <%= listing.category.includes("city") ? "checked" : "" %>
+            >
+            City
+          </label>
+
+          <label>
+            <input 
+              type="checkbox" 
+              name="listing[category][]" 
+              value="farm"
+              <%= listing.category.includes("farm") ? "checked" : "" %>
+            >
+            Farm
+          </label>
+
+          <label>
+            <input 
+              type="checkbox" 
+              name="listing[category][]" 
+              value="pool"
+              <%= listing.category.includes("pool") ? "checked" : "" %>
+            >
+            Pool
+          </label>
+
+          <label>
+            <input 
+              type="checkbox" 
+              name="listing[category][]" 
+              value="camping"
+              <%= listing.category.includes("camping") ? "checked" : "" %>
+            >
+            Camping
+          </label>
+
+          <label>
+            <input 
+              type="checkbox" 
+              name="listing[category][]" 
+              value="castle"
+              <%= listing.category.includes("castle") ? "checked" : "" %>
+            >
+            Castle
+          </label>
+
+          <label>
+            <input 
+              type="checkbox" 
+              name="listing[category][]" 
+              value="arctic"
+              <%= listing.category.includes("arctic") ? "checked" : "" %>
+            >
+            Arctic
+          </label>
+
+          <label>
+            <input 
+              type="checkbox" 
+              name="listing[category][]" 
+              value="rooms"
+              <%= listing.category.includes("rooms") ? "checked" : "" %>
+            >
+            Rooms
+          </label>
+
+          <label>
+            <input 
+              type="checkbox" 
+              name="listing[category][]" 
+              value="trending"
+              <%= listing.category.includes("trending") ? "checked" : "" %>
+            >
+            Trending
+          </label>
+
+       
+        <button class="btn btn-dark add-btn mt-3">Update List</button>
+        </div>
+        
+        <br><br>
+    </form>
+</body>
+</div>
+</div>
