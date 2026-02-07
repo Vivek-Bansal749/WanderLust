@@ -32,17 +32,24 @@ module.exports.renderNew = (req,res) => {
 
 
 //show route-------
-module.exports.showListings = async (req,res) => {
-    const {id} = req.params;
-    const listing = await Listing.findById(id).populate({path:"reviews",populate:{path:"author"},}).populate("owner");
-    if(!listing){
-        req.flash("error","Listing you requested for does not exists");
-        res.redirect("/listings");
-    }
-    else{
-         res.render("./listings/show.ejs", {listing});
-    }
+module.exports.showListing = async (req, res) => {
+  const { id } = req.params;
+
+  const listing = await Listing.findById(id)
+    .populate({
+      path: "reviews",
+      populate: { path: "author" },
+    })
+    .populate("owner");
+
+  if (!listing) {
+    req.flash("error", "Listing you requested does not exist");
+    return res.redirect("/listings");
+  }
+
+  res.render("./listings/show.ejs", { listing });
 };
+
 
 //create listing route -----
 module.exports.createListing = async (req,res,next) => {
